@@ -1,6 +1,5 @@
 <script lang="ts">
     import '../app.css';
-    //console.log("Champion List Page");
 
     export let data
     let championKeys = data["keys"]
@@ -9,25 +8,17 @@
 <div class="background list">
     <h1>Champion List</h1>
 
-    <!-- {#each championKeys as key}
-        <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/champion/${data.list[key].image.full}`} alt="">
-        <h3>{data.list[key].name}</h3>
-    {/each} -->
-
-    <!-- <p>{JSON.stringify(data)}</p> -->
-
-
     {#each championKeys as key}
-        <a href="/{data.list[key].id}">
-            <div class="container">
-                <div class="card">
+        <div class="container">
+            <div class="card">
+                <a href="/{data.list[key].id}">
                     <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/champion/${data.list[key].image.full}`} alt="">
                     <div class="name">
                         <h4><b>{data.list[key].name}</b></h4>
                     </div>
-                </div>
+                </a>
             </div>
-        </a>
+        </div>
     {/each}
 </div>
 
