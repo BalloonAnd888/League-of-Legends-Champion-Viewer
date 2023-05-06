@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import '../app.css';
     //console.log("Champion List Page");
 
@@ -9,50 +9,27 @@
 <div class="background list">
     <h1>Champion List</h1>
 
-    {#each championKeys as key}
+    <!-- {#each championKeys as key}
         <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/champion/${data.list[key].image.full}`} alt="">
         <h3>{data.list[key].name}</h3>
-    {/each}
+    {/each} -->
 
     <!-- <p>{JSON.stringify(data)}</p> -->
 
-    <div class="container">
-        <div class="card">
-            <!-- <img src="img_avatar.png" alt="Avatar" style="width:100%"> -->
-            <div class="name">
-                <h4><b>Champion Name</b></h4>
-            </div>
-        </div>
-    </div>
 
-    <div class="container">
-        <div class="card">
-            <div class="name">
-                <h4><b>Champion Name</b></h4>
+    {#each championKeys as key}
+        <a href="/{data.list[key].id}">
+            <div class="container">
+                <div class="card">
+                    <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/champion/${data.list[key].image.full}`} alt="">
+                    <div class="name">
+                        <h4><b>{data.list[key].name}</b></h4>
+                    </div>
+                </div>
             </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="card">
-            <div class="name">
-                <h4><b>Champion Name</b></h4>
-            </div>
-        </div>
-    </div>
-
+        </a>
+    {/each}
 </div>
-
-
-
-<!-- <div class="container">
-    <div class="card">
-        <img src="img_avatar.png" alt="Avatar" style="width:100%">
-        <div class="name">
-            <h4><b>Champion Name</b></h4>
-        </div>
-    </div>
-</div> -->
 
 <style>
     .background {
@@ -72,6 +49,7 @@
     .container {
         display: flex; 
         justify-content: center;
+        padding-bottom: 10px;
     }
 
     .name {
