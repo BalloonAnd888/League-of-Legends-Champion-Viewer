@@ -5,7 +5,6 @@
     const championName = Object.keys(champion.data);
 
     const ability = ["Q", "W", "E", "R"];
-    // console.log(ability)
 </script>
 
 <div>
@@ -273,6 +272,4 @@
             padding: 0px 200px 20px 200px;
         }
     }
-
 </style>
-
