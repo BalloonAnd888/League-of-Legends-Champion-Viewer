@@ -16,7 +16,7 @@
     </div>
 
     <div class="champSplashContainer">
-        <img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_0.jpg`} class="champSplash" alt="pic">
+        <img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_0.jpg`} class="champSplash" alt="ChampSplashImage">
     </div>
 
     <div class="champLoreContainer">
@@ -29,16 +29,12 @@
         <h2>Abilities</h2>
     </div>
     <div class="passiveContainer">
-        <div class="passiveTitle">
-            <h3>Passive</h3>
-        </div>
         <div class="passive">
-            <h4>{champion.data[championName].passive.name} </h4>
-            <p> {champion.data[championName].passive.description}</p>
+            <h4 class="passiveName">Passive: {champion.data[championName].passive.name} </h4>
+            <p class="passiveDescription"> {champion.data[championName].passive.description}</p>    
+            <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/passive/${champion.data[championName].passive.image.full}`} alt="passive">
         </div>
     </div>
-    <!-- Champion Passive Ability Image (not working for all champion)-->
-    <!-- <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/passive/${champion.data[championName].passive.image.full}`} alt="passive"> -->
 </div>
 
 <div class="spells">
@@ -46,7 +42,7 @@
         <div class="spellContainer">
             <h4 class="spellName">{ability[index]}: {spell.name}</h4>
             <p class="spellDescription">{spell.description}</p>
-            <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/spell/${spell.image.full}`} alt="">
+            <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/spell/${spell.image.full}`} alt="ChampionSpellImage">
         </div>
     {/each}
 </div>
@@ -57,13 +53,16 @@
     </div>
     {#each champion.data[championName].skins as skin, index}
         <div class="skinContainer">
-            <img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${index}.jpg`} alt="" class="champSkin">
+            <img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${index}.jpg`} alt="ChampionSkinsImage" class="champSkin">
             <h4 class="skinName">{skin.name}</h4>
         </div>
     {/each}
 </div>
 
-<button><a href="/">Back to Home</a></button>
+<div class="buttonContainer">
+    <a href="/" class="button">Back to Champion Select</a>
+</div>
+
 
 <style>
     .champName {
@@ -102,13 +101,16 @@
         padding-bottom: 10px;
     }
 
-    .passiveTitle {
-        text-align: center;
-    }
-
     .passive {
         text-align: center;
         padding: 0px 20px;
+    }
+    .passiveName {
+        padding-bottom: 5px;
+    }
+
+    .passiveDescription {
+        padding-bottom: 5px;
     }
 
     .spells {
@@ -141,6 +143,31 @@
     .skinContainer {
         text-align: center;
         padding-bottom: 10px;
+    }
+
+    .buttonContainer {
+        padding: 20px;
+    }
+
+    .button {
+        display: block;
+        color: black;
+        font-weight: bold;
+        background-color: #babcc9;
+        padding: 19px 0;
+        height: 64px;
+        max-width: 250px;
+        text-align: center;
+        margin: auto;
+        border-radius: 30px;
+    }
+
+    .button:hover {
+        background-color: #E3EDF2;
+    }
+
+    a {
+        text-decoration: none;
     }
 
     @media screen and (min-width: 620px) {
