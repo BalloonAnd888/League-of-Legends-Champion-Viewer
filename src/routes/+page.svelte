@@ -5,21 +5,23 @@
     let championKeys = data["keys"]
 </script>
 
-<div class="background list">
-    <h1>Champion List</h1>
+<div class="background">
+    <h1 class="title">Champion List</h1>
 
-    {#each championKeys as key}
-        <div class="container">
-            <div class="card">
-                <a href="/{data.list[key].id}">
-                    <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/champion/${data.list[key].image.full}`} alt="">
-                    <div class="name">
-                        <h4><b>{data.list[key].name}</b></h4>
-                    </div>
-                </a>
+    <div class="list">
+        {#each championKeys as key}
+            <div class="container">
+                <div class="card">
+                    <a href="/{data.list[key].id}">
+                        <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/champion/${data.list[key].image.full}`} alt="">
+                        <div class="name">
+                            <h4><b>{data.list[key].name}</b></h4>
+                        </div>
+                    </a>
+                </div>
             </div>
-        </div>
-    {/each}
+        {/each}
+    </div>
 </div>
 
 <style>
@@ -29,7 +31,7 @@
 
     .card {
             margin-bottom: 14px;
-            max-width: 300px;
+            max-width: 120px;
             border-radius: 8px;
             overflow: hidden;
             margin-left: auto;
@@ -38,56 +40,43 @@
     }
 
     .container {
-        display: flex; 
-        justify-content: center;
         padding-bottom: 10px;
     }
 
     .name {
         color: white;
+        font-size: 20px;
+        text-align: center;
+        padding-bottom: 8px;
     }
 
-    .list {
-        padding-left: 15px;
-        padding-right: 15px;
+    .title {
+        text-align: center;
+        padding: 20px 0px;
+    }
+
+    a {
+        text-decoration: none;
     }
 
     @media screen and (min-width: 620px) {
-        .card {
-            margin: 0 25px 30px 25px;
-            max-width: 400px;
-        }
-
-        .list {
-            padding-top: 16px;
-        }
-    }
-
-    @media screen and (min-width: 960px) {
-        .card {
-            max-width: 240px;
-        }
-
         .list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            flex-direction: row;
-            padding-top: 25px;
+            gap: 10px 20px;
+        }
+    }
+
+    @media screen and (min-width: 960px) {
+        .list {
+            padding: 0px 140px;
         }
     }
 
     @media screen and (min-width: 1200px) {
-        .card {
-            max-width: 300px;
-        }
-
-        .container {
-            display: block;
-        }
-
         .list {
-            display: block;
+            padding: 0px 210px;
         }
     }
 </style>
