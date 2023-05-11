@@ -8,7 +8,7 @@
     // console.log(ability)
 </script>
 
-<div class="intro">
+<div>
     <div class="introContainer">
         <h1 class="champName">{champion.data[championName].name}</h1> 
     
@@ -24,7 +24,7 @@
     </div>
 </div>
 
-<div class="abilities">
+<div>
     <div class="abilityTitle">
         <h2>Abilities</h2>
     </div>
@@ -32,7 +32,7 @@
         <div class="passive">
             <h4 class="passiveName">Passive: {champion.data[championName].passive.name} </h4>
             <p class="passiveDescription"> {champion.data[championName].passive.description}</p>    
-            <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/passive/${champion.data[championName].passive.image.full}`} alt="passive">
+            <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/passive/${champion.data[championName].passive.image.full}`} class="passiveImage" alt="passive">
         </div>
     </div>
 </div>
@@ -42,7 +42,7 @@
         <div class="spellContainer">
             <h4 class="spellName">{ability[index]}: {spell.name}</h4>
             <p class="spellDescription">{spell.description}</p>
-            <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/spell/${spell.image.full}`} alt="ChampionSpellImage">
+            <img src={`http://ddragon.leagueoflegends.com/cdn/13.9.1/img/spell/${spell.image.full}`} class="spellImage" alt="ChampionSpellImage">
         </div>
     {/each}
 </div>
@@ -67,11 +67,13 @@
 <style>
     .champName {
         text-align: center;
+        font-size: 40px;
     }
 
     .champTitle {
         text-transform: capitalize;
         text-align: center;
+        font-size: 20px;
     }
 
     .introContainer {
@@ -90,10 +92,6 @@
     .champLoreContainer {
         padding: 0px 20px 10px 20px;
     }
-
-    /* .abilities {
-        
-    } */
     
     .abilityTitle {
         text-align: center;
@@ -105,6 +103,7 @@
         text-align: center;
         padding: 0px 20px;
     }
+
     .passiveName {
         padding-bottom: 5px;
     }
@@ -114,7 +113,7 @@
     }
 
     .spells {
-        padding: 20px 10px;
+        padding: 10px;
     }
 
     .spellContainer {
@@ -171,15 +170,108 @@
     }
 
     @media screen and (min-width: 620px) {
+        .champName {
+            font-size: 50px;
+        }
 
+        .champTitle {
+            font-size: 30px;
+        }
+
+        .champSplash {
+            max-width: 500px;
+        }
+
+        .champSplashContainer {
+            padding-bottom: 30px;
+        }
+
+        .champLoreContainer {
+            padding: 0px 60px 20px 60px;
+            font-size: 25px;
+        }
+
+        .abilityTitle {
+            font-size: 25px;
+        }
+
+        .passive {
+            padding: 0px 60px;
+        }
+        
+        .passiveName {
+            font-size: 20px;
+        }
+
+        .passiveDescription {
+            font-size: 20px;
+            padding-bottom: 10px;
+        }
+
+        .spellContainer {
+            padding: 10px 60px;
+        }
+        
+        .spellName {
+            font-size: 20px;
+        }
+
+        .spellDescription {
+            font-size: 20px;
+            padding-bottom: 10px;
+        }
+
+        .skinTitle {
+            font-size: 25px;
+        }
+
+        .champSkin {
+            max-width: 500px;
+        }
+
+        .skinContainer {
+            padding-bottom: 20px;
+        }
+
+        .skinName {
+            font-size: 20px;
+        }
     }
 
     @media screen and (min-width: 960px) {
+        .champSplash {
+            max-width: 750px;
+        }
 
+        .champLoreContainer {
+            padding: 0px 120px 20px 120px;
+        }
+
+        .passiveImage {
+            width: 80px;
+        }
+
+        .spellImage {
+            width: 80px;
+        }
+
+        .passive {
+            padding: 0px 120px;
+        }
+
+        .spellContainer {
+            padding: 10px 120px;
+        }
+
+        .skinContainer {
+            padding-bottom: 30px;
+        }
     }
 
     @media screen and (min-width: 1200px) {
-
+        .champLoreContainer {
+            padding: 0px 200px 20px 200px;
+        }
     }
 
 </style>
