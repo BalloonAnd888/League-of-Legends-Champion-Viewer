@@ -51,11 +51,17 @@
     {/each}
 </div>
 
-
-<!-- {#each champion.data[championName].skins as skin, index}
-    <img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${index}.jpg`} alt="">
-    <h4>{skin.name}</h4>
-{/each} -->
+<div class="skins">
+    <div class="skinTitle">
+        <h2>Skins</h2>
+    </div>
+    {#each champion.data[championName].skins as skin, index}
+        <div class="skinContainer">
+            <img src={`http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${championName}_${index}.jpg`} alt="" class="champSkin">
+            <h4 class="skinName">{skin.name}</h4>
+        </div>
+    {/each}
+</div>
 
 <button><a href="/">Back to Home</a></button>
 
@@ -120,6 +126,33 @@
 
     .spellDescription {
         padding-bottom: 5px;
+    }
+
+    .skinTitle {
+        text-align: center;
+        text-decoration: underline;
+        padding-bottom: 10px;
+    }
+
+    .champSkin {
+        max-width: 250px;
+    }
+
+    .skinContainer {
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    @media screen and (min-width: 620px) {
+
+    }
+
+    @media screen and (min-width: 960px) {
+
+    }
+
+    @media screen and (min-width: 1200px) {
+
     }
 
 </style>
